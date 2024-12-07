@@ -29,4 +29,7 @@ model Todo{
   desc    String
   done    Boolean
   userId  Int
+  time   DateTime? @default(now()) 
+  // default value is current time + prisma will complain if there is data present in the table
+  // so we give a ? to make it optional
 }
