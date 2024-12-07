@@ -87,15 +87,28 @@ async function main() {
     });
     console.log(updatedTodo);
 
+    // console.log("\n--------------------------------------------------------------------\n");
+
+    // console.log("Deleting a todo");
+    // const deletedTodo = await client.todo.delete({
+    //     where: {
+    //         id: 2,
+    //     },
+    // });
+    // console.log(deletedTodo);
+
     console.log("\n--------------------------------------------------------------------\n");
 
-    console.log("Deleting a todo");
-    const deletedTodo = await client.todo.delete({
+    console.log("Deleting a user");
+    const deletedUser = await client.users.delete({
         where: {
-            id: 2,
+            id: users[2].id,
         },
     });
-    console.log(deletedTodo);
+    console.log(deletedUser);
+    // This will fail because of foreign key constraint
+
+    console.log("\n--------------------------------------------------------------------\n");
 
 }
 
