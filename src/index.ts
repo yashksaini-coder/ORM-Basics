@@ -15,6 +15,13 @@ async function main() {
 
     console.log("\n--------------------------------------------------------------------\n");
 
+    console.log("Getting all users with their todos");
+    const usersWithTodos = await client.users.findMany({
+        include: {
+            Todo: true,
+        },
+    });
+    console.log(usersWithTodos);
 }
 
 main().catch((e) => {

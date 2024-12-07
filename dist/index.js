@@ -20,6 +20,14 @@ function main() {
         console.log("Getting all todos");
         const todos = yield client.todo.findMany();
         console.log(todos);
+        console.log("\n--------------------------------------------------------------------\n");
+        console.log("Getting all users with their todos");
+        const usersWithTodos = yield client.users.findMany({
+            include: {
+                Todo: true,
+            },
+        });
+        console.log(usersWithTodos);
     });
 }
 main().catch((e) => {
