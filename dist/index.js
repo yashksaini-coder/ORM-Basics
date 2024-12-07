@@ -83,6 +83,14 @@ function main() {
             },
         });
         console.log(updatedTodo);
+        console.log("\n--------------------------------------------------------------------\n");
+        console.log("Deleting a todo");
+        const deletedTodo = yield client.todo.delete({
+            where: {
+                id: 2,
+            },
+        });
+        console.log(deletedTodo);
     });
 }
 main().catch((e) => {
