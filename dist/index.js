@@ -92,15 +92,23 @@ function main() {
         // });
         // console.log(deletedTodo);
         console.log("\n--------------------------------------------------------------------\n");
-        console.log("Deleting a user");
-        const deletedUser = yield client.users.delete({
+        // console.log("Deleting a user");
+        // const deletedUser = await client.users.delete({
+        //     where: {
+        //         id: users[2].id,
+        //     },
+        // });
+        // console.log(deletedUser);
+        // // This will fail because of foreign key constraint
+        console.log("\n--------------------------------------------------------------------\n");
+        console.log("Deleting a todo");
+        const deteleTodo = yield client.todo.delete({
             where: {
-                id: users[2].id,
+                id: 1,
             },
         });
-        console.log(deletedUser);
-        // This will fail because of foreign key constraint
-        console.log("\n--------------------------------------------------------------------\n");
+        console.log(deteleTodo);
+        // This will delete the todo with id 1
     });
 }
 main().catch((e) => {
