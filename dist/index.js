@@ -36,6 +36,18 @@ function main() {
             },
         });
         console.log(todosWithUsers);
+        console.log("\n--------------------------------------------------------------------\n");
+        console.log("Creating a new user");
+        const newUser = yield client.users.create({
+            data: {
+                username: "John Doe",
+                email: "johndoe@gmail.com",
+                password: "john123",
+                city: "New York",
+            },
+        });
+        console.log(newUser);
+        console.log("\n--------------------------------------------------------------------\n");
     });
 }
 main().catch((e) => {
