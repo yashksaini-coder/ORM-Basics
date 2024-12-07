@@ -28,6 +28,14 @@ function main() {
             },
         });
         console.log(usersWithTodos);
+        console.log("\n--------------------------------------------------------------------\n");
+        console.log("Getting all todos with their users");
+        const todosWithUsers = yield client.todo.findMany({
+            include: {
+                user: true,
+            },
+        });
+        console.log(todosWithUsers);
     });
 }
 main().catch((e) => {
