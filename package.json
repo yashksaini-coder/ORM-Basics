@@ -3,7 +3,8 @@
   "version": "1.0.0",
   "main": "index.js",
   "scripts": {
-    "dev": "tsc -b && node dist/index.js"
+    "dev": "tsc -b && node dist/index.js",
+    "seed": "npx ts-node src/seed.ts"
   },
   "keywords": [],
   "author": "",
@@ -11,7 +12,11 @@
   "description": "",
   "dependencies": {
     "@prisma/client": "^6.0.1",
-    "prisma": "^6.0.1",
+    "prisma": "^6.0.1"
+  },
+  "devDependencies": {
+    "@types/node": "^22.10.1",
+    "ts-node": "^10.9.2",
     "typescript": "^5.7.2"
   }
 }
