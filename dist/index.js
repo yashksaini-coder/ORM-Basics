@@ -36,18 +36,42 @@ function main() {
             },
         });
         console.log(todosWithUsers);
+        // console.log("\n--------------------------------------------------------------------\n");
+        // console.log("Creating a new user");
+        // const newUser = await client.users.create({
+        //     data: {
+        //         username: "John Doe",
+        //         email: "johndoe@gmail.com",
+        //         password: "john123",
+        //         city: "New York",
+        //     },
+        // });
+        // console.log(newUser);
         console.log("\n--------------------------------------------------------------------\n");
-        console.log("Creating a new user");
-        const newUser = yield client.users.create({
-            data: {
-                username: "John Doe",
-                email: "johndoe@gmail.com",
-                password: "john123",
-                city: "New York",
-            },
+        console.log("Creating a new todo");
+        const newTodo = yield client.todo.createMany({
+            data: [
+                {
+                    title: "Learn TypeScript",
+                    desc: "Complete Typescript tutorial",
+                    done: false,
+                    userId: users[2].id,
+                },
+                {
+                    title: "Learn Rust",
+                    desc: "Complete Rust tutorial",
+                    done: true,
+                    userId: users[2].id,
+                },
+                {
+                    title: "Learn Next.js",
+                    desc: "Complete Prisma tutorial",
+                    done: false,
+                    userId: users[2].id,
+                }
+            ]
         });
-        console.log(newUser);
-        console.log("\n--------------------------------------------------------------------\n");
+        console.log(newTodo);
     });
 }
 main().catch((e) => {
