@@ -16,7 +16,7 @@ datasource db {
 model users {
   id        String   @id @default(uuid()) 
   username  String   @unique
-  email     String   @unique
+  email     String   
   password  String
   createdAt DateTime @default(now())
   updatedAt DateTime @updatedAt
@@ -31,12 +31,14 @@ model Todo{
   desc    String
   done    Boolean
   userId  String
-  time   DateTime? @default(now()) 
-  // default value is current time + prisma will complain if there is data present in the table
-  // so we give a ? to make it optional
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt 
+  // we added the createdAt field to keep track of when the todo was created
+  // we added the updatedAt field to keep track of when the todo was updated
 
   user    users @relation(fields: [userId], references: [id])
   // relation between user and todo table - one to many
   // one user can have many todos
   // userId is the foreign key
 }
+
