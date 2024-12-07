@@ -21,6 +21,8 @@ model users {
   createdAt DateTime @default(now())
   updatedAt DateTime @updatedAt
   city String
+
+  Todo Todo[]
 }
 
 model Todo{
@@ -28,8 +30,13 @@ model Todo{
   title   String
   desc    String
   done    Boolean
-  userId  Int
+  userId  String
   time   DateTime? @default(now()) 
   // default value is current time + prisma will complain if there is data present in the table
   // so we give a ? to make it optional
+
+  user    users @relation(fields: [userId], references: [id])
+  // relation between user and todo table - one to many
+  // one user can have many todos
+  // userId is the foreign key
 }
