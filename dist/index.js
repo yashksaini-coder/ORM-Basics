@@ -47,31 +47,42 @@ function main() {
         //     },
         // });
         // console.log(newUser);
+        // console.log("\n--------------------------------------------------------------------\n");
+        // console.log("Creating a new todo");
+        // const newTodo = await client.todo.createMany({
+        //     data: [
+        //         {
+        //             title: "Learn TypeScript",
+        //             desc: "Complete Typescript tutorial",
+        //             done: false,
+        //             userId: users[2].id,
+        //         },
+        //         {
+        //             title: "Learn Rust",
+        //             desc: "Complete Rust tutorial",
+        //             done: true,
+        //             userId: users[2].id,
+        //         },
+        //         {
+        //             title: "Learn Next.js",
+        //             desc: "Complete Prisma tutorial",
+        //             done: false,
+        //             userId: users[2].id,
+        //         }
+        //     ]
+        // });
+        // console.log(newTodo);
         console.log("\n--------------------------------------------------------------------\n");
-        console.log("Creating a new todo");
-        const newTodo = yield client.todo.createMany({
-            data: [
-                {
-                    title: "Learn TypeScript",
-                    desc: "Complete Typescript tutorial",
-                    done: false,
-                    userId: users[2].id,
-                },
-                {
-                    title: "Learn Rust",
-                    desc: "Complete Rust tutorial",
-                    done: true,
-                    userId: users[2].id,
-                },
-                {
-                    title: "Learn Next.js",
-                    desc: "Complete Prisma tutorial",
-                    done: false,
-                    userId: users[2].id,
-                }
-            ]
+        console.log("Updating a todo");
+        const updatedTodo = yield client.todo.update({
+            where: {
+                id: 1,
+            },
+            data: {
+                done: true,
+            },
         });
-        console.log(newTodo);
+        console.log(updatedTodo);
     });
 }
 main().catch((e) => {
