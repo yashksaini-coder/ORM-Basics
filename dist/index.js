@@ -13,8 +13,13 @@ const client_1 = require("@prisma/client");
 const client = new client_1.PrismaClient();
 function main() {
     return __awaiter(this, void 0, void 0, function* () {
+        console.log("Getting all users");
         const users = yield client.users.findMany();
         console.log(users);
+        console.log("\n--------------------------------------------------------------------\n");
+        console.log("Getting all todos");
+        const todos = yield client.todo.findMany();
+        console.log(todos);
     });
 }
 main().catch((e) => {
