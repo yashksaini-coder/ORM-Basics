@@ -22,3 +22,11 @@ model users {
   updatedAt DateTime @updatedAt
   city String
 }
+
+model Todo{
+  id      Int @default(autoincrement()) @id
+  title   String
+  desc    String
+  done    Boolean
+  userId  Int
+}
